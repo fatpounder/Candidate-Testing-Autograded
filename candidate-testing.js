@@ -17,13 +17,20 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-let info = input.question("What is your name?");
+  let info = input.question("What is your name? ");
+  return info
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-let info = input.question("Who was the first American woman in space? ");
-}
+  //let info = input.question("Who was the first American woman in space?");
+  let questions = ["Who was the first American woman in space? ", "True or false: 5 kilometer == 5000 meters? ", "(5 + 3)/2 * 10 = ? ", "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "What is the minimum crew size for the ISS? "];
+  for (i = 0; i < questions.length; i++) {
+    let info = input.question(questions[i]);
+  //return questions
+   }
+} 
+runProgram() //<--remember to remove this!!!
 
 function gradeQuiz(candidateAnswers) {
 
@@ -38,9 +45,9 @@ function gradeQuiz(candidateAnswers) {
 }
 
 function runProgram() {
-  askForName();
+  candidateName = askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Hello, " + candidateName + ".");
+   console.log(`Hello, ${candidateName}.`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
