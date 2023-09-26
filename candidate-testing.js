@@ -32,16 +32,25 @@ function askQuestion() {
   }
   return candidateAnswers
 } 
-runProgram() //<--remember to remove this!!!
 
 function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   console.log(`You answered ${[candidateAnswers]}. \nThe correct answers are ${[correctAnswers]}.`)
-
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  let numQuizQuests = questions.length
+  let numCorrAnswers = 0  
+  //TODO 3.2 use this variable to calculate the candidates score.
+  for ( let i = 0; i < questions.length; i++) {
+    if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
+      numCorrAnswers++
+    }
+  }
+  let grade = ((numCorrAnswers)/(numQuizQuests)*100) 
+    console.log(`You have answered ${numCorrAnswers} questions correctly!`)
+    if (grade >= 80) {
+      console.log(`Congratulations! You passed the quiz with a score of ${grade} percent!`)
+    } else if (grade < 80) {
+      console.log(`Your score is ${grade}, and you did not pass the quiz.`)
+      }
   return grade;
 }
 
