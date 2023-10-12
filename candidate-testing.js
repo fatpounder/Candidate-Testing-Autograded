@@ -33,32 +33,48 @@ function askQuestion() {
   return candidateAnswers
 } 
 
-function gradeQuiz(candidateAnswers) {
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  console.log(`You answered ${[candidateAnswers]}. \nThe correct answers are ${[correctAnswers]}.`)
-  let numQuizQuests = questions.length
-  let numCorrAnswers = 0  
-  //TODO 3.2 use this variable to calculate the candidates score.
-  for ( let i = 0; i < questions.length; i++) {
-    if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
-      numCorrAnswers++
+// function gradeQuiz(candidateAnswers) {
+//   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+//   console.log(`You answered ${[candidateAnswers]}. \nThe correct answers are ${[correctAnswers]}.`)
+//   let numQuizQuests = questions.length
+//   let numCorrAnswers = 0  
+//   //TODO 3.2 use this variable to calculate the candidates score.
+//   for ( let i = 0; i < questions.length; i++) {
+//     if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
+//       numCorrAnswers++
+//     }
+//   }
+
+  function gradeQuiz(candidateAnswers) {
+    //console.log(`You answered ${[candidateAnswers]}. \nThe correct answers are ${[correctAnswers]}.`)
+    let numQuizQuests = questions.length
+    let numCorrAnswers = 0  
+    for ( let i = 0; i < questions.length; i++) {
+      if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
+        numCorrAnswers++
+      }
+      let j = (i + 1)
+      console.log(`${j}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`)
     }
-  }
+
   let grade = ((numCorrAnswers)/(numQuizQuests)*100) 
-    console.log(`You have answered ${numCorrAnswers} questions correctly!`)
+    //console.log(`You have answered ${numCorrAnswers} questions correctly!`)
+    console.log(`>>> Overall Grade: ${grade}% (${numCorrAnswers} of ${numQuizQuests} responses correct) <<<`)
     if (grade >= 80) {
-      console.log(`Congratulations! You passed the quiz with a score of ${grade} percent!`)
+      console.log(`>>> Status: PASSED <<<`)
     } else if (grade < 80) {
-      console.log(`Your score is ${grade}, and you did not pass the quiz.`)
+      console.log(`>>> Status: FAILED <<<`)
       }
   return grade;
 }
 
+
 function runProgram() {
   candidateName = askForName();
-  // TODO 1.1c: Greet candidate using their name //
-   console.log(`Hello, ${candidateName}.`);
   candidateAnswers = askQuestion();
+   console.log(`\nCandidate Name: ${candidateName}.\n`);
+   //console.log(newFormatOutput())
+  //candidateAnswers = askQuestion();
   gradeQuiz(candidateAnswers);
 }
 
