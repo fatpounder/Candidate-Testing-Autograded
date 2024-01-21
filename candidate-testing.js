@@ -35,15 +35,15 @@ function askQuestion() {
 
 // function gradeQuiz(candidateAnswers) {
 //   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-//   console.log(`You answered ${[candidateAnswers]}. \nThe correct answers are ${[correctAnswers]}.`)
-//   let numQuizQuests = questions.length
-//   let numCorrAnswers = 0  
+   console.log(`You answered ${[candidateAnswers]}. \nThe correct answers are ${[correctAnswers]}.`)
+   let numQuizQuests = questions.length
+   let numCorrAnswers = 0
 //   //TODO 3.2 use this variable to calculate the candidates score.
-//   for ( let i = 0; i < questions.length; i++) {
-//     if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
-//       numCorrAnswers++
-//     }
-//   }
+   for ( let i = 0; i < questions.length; i++) {
+     if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
+       numCorrAnswers++
+     }
+   }
 
   function gradeQuiz(candidateAnswers) {
     //console.log(`You answered ${[candidateAnswers]}. \nThe correct answers are ${[correctAnswers]}.`)
